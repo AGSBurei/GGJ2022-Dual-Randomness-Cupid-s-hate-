@@ -60,7 +60,7 @@ MonoBehaviour:
   jumpState: 0
   collider2d: {fileID: 0}
   audioSource: {fileID: 0}
-  health: {fileID: 0}
+  CharacterStats: {fileID: 0}
   controlEnabled: 1
 --- !u!212 &212064061491315838
 SpriteRenderer:
@@ -287,6 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0209db1ba804943a133f856724e255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  STR: 0
-  AGI: 0
+  HP: 10
+  STR: 1
+  AGI: 1
