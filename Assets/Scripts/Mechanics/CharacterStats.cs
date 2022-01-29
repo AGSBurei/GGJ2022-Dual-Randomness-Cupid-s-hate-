@@ -13,20 +13,26 @@ namespace Platformer.Mechanics
         public int STR;
         [SerializeField]
         public int AGI;
+
+        public int currentHP = 5;
+
+        public bool IsAlive => HP > 0;
         
-        int currentHP;
-        
-        public bool IsAlive => currentHP > 0;
-        
-        public void Increment()
+        public void HPup(int hp)
         {
-            currentHP = Mathf.Clamp(currentHP + 1, 0, HP);
+            HP = HP + hp;
+
+            currentHP = currentHP + hp;
         }
         
-        public void Decrement()
+        public void HPdown(int hp)
         {
-            currentHP = Mathf.Clamp(currentHP - 1, 0, HP);
-            if (currentHP == 0)
+            if ((HP - hp) >= 0)
+            {
+                HP = HP - hp;
+            }
+            
+            if (HP == 0)
             {
                 var ev = Schedule<HealthIsZero>();
                 ev.health = this;
@@ -35,10 +41,36 @@ namespace Platformer.Mechanics
         
         public void Die()
         {
-            while (currentHP > 0) Decrement();
+            while (HP > 0) HPdown(1);
+        }
+        
+        public void STRup(int up)
+        {
+            STR = STR + up;
+        }
+        
+        public void STRdown(int down)
+        {
+            if ((STR - down) >= 0)
+            {
+                STR = STR - down;
+            }
+        }
+        
+        public void AGIup(int up)
+        {
+            AGI = AGI + up;
+        }
+        
+        public void AGIdown(int down)
+        {
+            if ((AGI - down) >= 0)
+            {
+                AGI = AGI - down;
+            }
         }
 
-        void Awake()
+        public void Awake()
         {
             currentHP = HP;
         }
