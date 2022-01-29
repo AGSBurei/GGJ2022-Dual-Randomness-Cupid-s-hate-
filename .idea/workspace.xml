@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="903a6879-fb0e-4c4a-950f-12667bb70698" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair/crossair arc 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair/crossair arc 1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair/crossair arc 2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair/crossair arc 2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair/crossair arc 3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UI/Player/Crossair/crossair arc 3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/Arrow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/Bow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/Bow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/Quiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/Quiver.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +34,8 @@
       <option name="presentableId" value="Default" />
       <updated>1643469288359</updated>
       <workItem from="1643469291964" duration="3000" />
+      <workItem from="1643483338475" duration="1000" />
+      <workItem from="1643483984517" duration="3000" />
     </task>
     <servers />
   </component>
