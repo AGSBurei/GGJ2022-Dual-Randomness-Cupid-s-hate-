@@ -14,7 +14,7 @@ namespace Weapon
         
         public void Awake()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update()
