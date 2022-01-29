@@ -31,7 +31,7 @@ namespace Platformer.Mechanics
         private bool stopJump;
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
-        public Health health;
+        public CharacterStats CharacterStats;
         public bool controlEnabled = true;
 
         bool jump;
@@ -44,7 +44,7 @@ namespace Platformer.Mechanics
 
         void Awake()
         {
-            health = GetComponent<Health>();
+            CharacterStats = GetComponent<CharacterStats>();
             audioSource = GetComponent<AudioSource>();
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
