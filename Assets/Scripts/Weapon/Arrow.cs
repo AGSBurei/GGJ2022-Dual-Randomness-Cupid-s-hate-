@@ -1,16 +1,17 @@
+using System;
+using System.Collections.Generic;
 using Platformer.Mechanics;
 using UnityEngine;
 
 namespace Weapon
 {
     public class Arrow : MonoBehaviour
-
     {
-        [SerializeField] private string color;
-
         [SerializeField] private GameObject player;
-        public PlayerController playerController;
+        [SerializeField] public ArrowSeletor arrowSeletor;
+        [SerializeField] public PlayerController playerController;
         private Vector2 _position;
+        private String currentArrow;
 
         public void Start()
         {
@@ -19,10 +20,20 @@ namespace Weapon
             transform.position = new Vector2(_position.x, _position.y);
             playerController = player.GetComponent<PlayerController>();
         }
-        
-        public string GetColor()
+
+        public void LateUpdate()
         {
-            return color;
+            currentArrow = arrowSeletor.GetCurrentArrow();
+        }
+
+        public string GetArrow()
+        {
+            return currentArrow;
+        }
+        
+        public List<String> GetArrowType()
+        {
+            return arrowSeletor.GetArrowType();
         }
     }
 }
