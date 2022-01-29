@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Object
-{
+namespace Weapon
+{ 
     public class Quiver : MonoBehaviour
 
     {
@@ -16,10 +15,7 @@ namespace Object
             {
                 if (dictionary != null)
                 {
-                    foreach (var arrow in dictionary)
-                    {
-                       arrowType.Add(dictionary.Keys.ToString());
-                    }
+                    arrowType.Add(dictionary.Keys.ToString());
                 }
             }
 
@@ -33,7 +29,7 @@ namespace Object
                 {
                     foreach (var arrow in dictionary)
                     {
-                        if (arrow.Key == arrowType)
+                        if (arrow.Key.GetColor() == arrowType)
                         {
                             dictionary[arrow.Key] = newCount;
                         }
@@ -50,7 +46,7 @@ namespace Object
                 {
                     foreach (var arrow in dictionary)
                     {
-                        if (arrow.Key == arrowType)
+                        if (arrow.Key.GetColor() == arrowType)
                         {
                            arrowCount = dictionary[arrow.Key];
                         }

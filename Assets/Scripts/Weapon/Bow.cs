@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Object
+namespace Weapon
 {
     
     public class Bow : MonoBehaviour
@@ -11,15 +11,24 @@ namespace Object
         private Quiver quiver;
 
         private string _currentArrowType;
-
-        public void Start()
-        {
-            
-        }
-
+        
         public void Awake()
         {
             throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+                if (hit.collider != null)
+                {
+                    Debug.Log(hit.collider.name);
+                }
+            }
         }
 
         public string GetArrowType()
