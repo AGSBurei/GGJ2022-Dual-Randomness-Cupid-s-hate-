@@ -1,7 +1,7 @@
 using Platformer.Gameplay;
 using UnityEngine;
 using static Platformer.Core.Simulation;
-
+using System.Collections;
 
 namespace Platformer.Mechanics
 {
@@ -18,6 +18,10 @@ namespace Platformer.Mechanics
         public bool randomAnimationStartTime = false;
         [Tooltip("List of frames that make up the animation.")]
         public Sprite[] idleAnimation, collectedAnimation;
+        [Tooltip("Vitesse d'attraction en unités par seconde")]
+        public float speed = 5.0f;
+        [Tooltip("Rayon d'attraction en unités par seconde")]
+        public float attractionRadius=5.0f;
 
         internal Sprite[] sprites = new Sprite[0];
 
@@ -30,12 +34,29 @@ namespace Platformer.Mechanics
         internal int frame = 0;
         internal bool collected = false;
 
+        internal GameObject player;
+        internal bool follow=false;
+
         void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
             if (randomAnimationStartTime)
                 frame = Random.Range(0, sprites.Length);
             sprites = idleAnimation;
+            player = GameObject.Find("Player");
+        }
+
+        void Update()
+        {
+            var target = player.GetComponent<Transform>();
+            if (player != null){
+                if(Vector3.Distance(transform.position,target.position)<attractionRadius){
+                    follow=true;
+                }
+                if(follow){
+                    transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                }
+            }
         }
 
         void OnTriggerEnter2D(Collider2D other)
