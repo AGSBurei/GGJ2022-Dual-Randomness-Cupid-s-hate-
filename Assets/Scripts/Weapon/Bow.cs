@@ -7,10 +7,8 @@ namespace Weapon
     public class Bow : MonoBehaviour
 
     {
-        [SerializeField]
-        private Quiver quiver;
-        [SerializeField]
-        private Arrow _arrow;
+        [SerializeField] private Quiver quiver;
+        [SerializeField] private ArrowSelector _arrowSelector;
         private string _currentArrowType;
         
         public void Awake()
@@ -19,7 +17,7 @@ namespace Weapon
 
         public void Update()
         {
-            _currentArrowType = _arrow.GetArrowType();
+            SetArrowType();
             if (Input.GetMouseButtonDown(0) && quiver.GetArrowCount((_currentArrowType)) > 0)
             {
                 Shoot(_currentArrowType);
@@ -34,7 +32,11 @@ namespace Weapon
         public void Shoot(String currentArrow)
         {
             RemoveArrowFromQuiver(currentArrow);
-            Instantiate();
+            //Instantiate();
+        }
+        public void SetArrowType()
+        {
+            _currentArrowType = _arrowSelector.GetCurrentArrow();
         }
     }
 }
