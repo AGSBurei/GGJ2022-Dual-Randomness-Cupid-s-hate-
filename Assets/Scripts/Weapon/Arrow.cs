@@ -7,33 +7,23 @@ namespace Weapon
 {
     public class Arrow : MonoBehaviour
     {
-        [SerializeField] private GameObject player;
-        [SerializeField] public ArrowSeletor arrowSeletor;
-        [SerializeField] public PlayerController playerController;
-        private Vector2 _position;
-        private String currentArrow;
+        private String ArrowType;
+        [SerializeField] private ArrowSelector _arrowSelector;
+        private string CurrentArrowType;
 
-        public void Start()
+        public void Update()
         {
-            Transform playerTransform = player.transform;
-            _position = playerTransform.position;
-            transform.position = new Vector2(_position.x, _position.y);
-            playerController = player.GetComponent<PlayerController>();
-        }
-
-        public void LateUpdate()
-        {
-            currentArrow = arrowSeletor.GetCurrentArrow();
-        }
-
-        public string GetArrow()
-        {
-            return currentArrow;
+            SetArrowType();
         }
         
-        public List<String> GetArrowType()
+        public void SetArrowType()
         {
-            return arrowSeletor.GetArrowType();
+            CurrentArrowType = _arrowSelector.GetCurrentArrow();
         }
+        public string GetArrowType()
+        {
+            return ArrowType;
+        }
+        
     }
 }
