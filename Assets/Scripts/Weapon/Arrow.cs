@@ -7,7 +7,6 @@ namespace Weapon
 {
     public class Arrow : MonoBehaviour
     {
-        private String ArrowType;
         [SerializeField] private ArrowSelector _arrowSelector;
         private string CurrentArrowType;
 
@@ -22,8 +21,7 @@ namespace Weapon
         }
         public string GetArrowType()
         {
-            return ArrowType;
+            return CurrentArrowType;
         }
-        
     }
 }
