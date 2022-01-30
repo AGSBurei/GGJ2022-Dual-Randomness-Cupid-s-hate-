@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -38,20 +39,64 @@ namespace Weapon
             {
                 foreach (KeyValuePair<string, int> arrow in arrowList)
                 {
-                    
                     if (arrow.Key == arrowType)
                     {
-                        Debug.Log(arrow.Key + ' ' + arrow.Value + ' ' + arrowType);
                         arrowCount = arrow.Value;
                     }
                 }
             }
             return arrowCount;
         }
+        
+        public void SetArrowCount(string arrowType)
+        {
+            var arrowCount = 0;
+            var tempArrow = new List<string>();
+            
+            
+            foreach (var dictionary in _Arrow.ToList())
+            {
+                if (dictionary != null)
+                {
+                    foreach (var arrow in dictionary)
+                    {
+                        if (arrow.Key == arrowType)
+                        {
+                            tempArrow.Add(arrow.Key);
+                            arrowCount = arrow.Value - 1;
+                        }
+                    }
+                }
+            }
+
+
+            //foreach (var dictionary in _Arrow.ToList())
+            //{
+            //    if (dictionary != null)
+            //    {
+            //        foreach (var arrow in dictionary)
+            //        {
+            //            if (arrow.Key == arrowType)
+            //            {
+            //                tempArrow.Add(arrow.Key);
+            //                arrowCount = arrow.Value - 1;
+            //            }
+            //        }
+            //    }
+            //}
+            //
+            //
+
+            //foreach (var key in tempArrow)
+            //{
+            //    //dictionary[arrow.Key] = arrowCount;
+            //    
+            //}
+        }
 
         public void UpdateArrow(string arrowType)
         {
-            throw new NotImplementedException();
+            SetArrowCount(arrowType);
         }
     }
 }

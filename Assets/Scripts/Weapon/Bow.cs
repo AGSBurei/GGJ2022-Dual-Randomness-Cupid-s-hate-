@@ -20,16 +20,9 @@ namespace Weapon
         public void Update()
         {
             _currentArrowType = _arrow.GetArrowType();
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && quiver.GetArrowCount((_currentArrowType)) > 0)
             {
-                RemoveArrowFromQuiver(_currentArrowType);
-                Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-
-                if (hit.collider != null)
-                {
-                    Debug.Log(hit.collider.name);
-                }
+                Shoot(_currentArrowType);
             }
         }
 
@@ -38,9 +31,16 @@ namespace Weapon
         {
             quiver.UpdateArrow(arrowType);
         }
-        public void Shoot()
+        public void Shoot(String currentArrow)
         {
-            
+            RemoveArrowFromQuiver(currentArrow);
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.name);
+            }
         }
     }
 }
