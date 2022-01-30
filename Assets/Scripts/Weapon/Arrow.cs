@@ -13,6 +13,7 @@ namespace Weapon
         public void Update()
         {
             SetArrowType();
+            transform.Translate((transform.forward * 20 * Time.deltaTime));
         }
         
         public void SetArrowType()
