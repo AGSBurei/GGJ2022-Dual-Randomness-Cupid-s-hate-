@@ -9,18 +9,20 @@ namespace Weapon
     {
         [SerializeField]
         private Quiver quiver;
-
+        [SerializeField]
+        private Arrow _arrow;
         private string _currentArrowType;
         
         public void Awake()
         {
-            
         }
 
         public void Update()
         {
+            _currentArrowType = _arrow.GetArrowType();
             if (Input.GetMouseButtonDown(0))
             {
+                RemoveArrowFromQuiver(_currentArrowType);
                 Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
@@ -31,13 +33,10 @@ namespace Weapon
             }
         }
 
-        public string GetArrowType()
+       
+        public void RemoveArrowFromQuiver(string arrowType)
         {
-            return _currentArrowType;
-        }
-        public void SetCurrentArrowType(string arrowType)
-        {
-            _currentArrowType = arrowType;
+            quiver.UpdateArrow(arrowType);
         }
         public void Shoot()
         {
