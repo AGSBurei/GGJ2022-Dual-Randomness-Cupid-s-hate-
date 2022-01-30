@@ -7,22 +7,9 @@ namespace Weapon
 {
     public class Arrow : MonoBehaviour
     {
-        [SerializeField] private ArrowSelector _arrowSelector;
-        private string CurrentArrowType;
-
         public void Update()
         {
-            SetArrowType();
             transform.Translate((transform.forward * 20 * Time.deltaTime));
-        }
-        
-        public void SetArrowType()
-        {
-            CurrentArrowType = _arrowSelector.GetCurrentArrow();
-        }
-        public string GetArrowType()
-        {
-            return CurrentArrowType;
         }
     }
 }
