@@ -15,8 +15,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://E:/Pro/GGJ2022-Dual-Randomness-Cupid-s-hate-/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Pro/GGJ2022-Dual-Randomness-Cupid-s-hate-/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainUIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Pro/GGJ2022-Dual-Randomness-Cupid-s-hate-/Assets/Scenes/test.unity" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
